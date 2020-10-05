@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Album
+{% endblock %}
+
+{% block body %}
+	<h1>Edit Album</h1>
+
+	{{ include('album/_form.html.twig', {'button_label': 'Update', 'title': 'Edit Album'}) }}
+{% endblock %}

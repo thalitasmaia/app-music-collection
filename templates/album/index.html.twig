@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Albums -
+	{{artist.name}}
+{% endblock %}
+
+
+{% block body %}
+	<div class="main-container">
+		<div class="container card shadow bg-white ">
+
+			<div>
+				<br>
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+				<h2>Albums -
+					{{artist.name}}</h2>
+
+				<a href="{{ path('album_new', {'artistId': artist.id }) }}" class="float-right">
+					<button type="button" class="btn btn-success btn-sm">New Album</button>
+				</a>
+			</div>
+			<table class="table table-striped ">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Album Name</th>
+						<th>Year</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for album in albums %}
+						<tr>
+							<td>{{ album.id }}</td>
+							<td>{{ album.albumName }}</td>
+							<td>{{ album.year }}</td>
+							<td class="row">
+								<div class="action-button">
+									<a href="{{ path('album_show', { 'id': album.id }) }}">
+										<button type="button" class="btn btn-secondary btn-sm">Show</button>
+									</a>
+								</div>
+
+								<div class="action-button">
+									<a href="{{ path('album_edit', { 'id': album.id }) }}">
+										<button type="button" class="btn btn-primary btn-sm">Edit</button>
+									</a>
+								</div>
+
+								<div class="action-button">
+									{% if isAdministrator %}
+										{{ include('album/_delete_form.html.twig', {'album': album}) }}
+									{% endif %}
+								</div>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="5">Unable to load Albums.</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</tr>
+		</tbody>
+	</tbody>
+</table>
+<a href="{{ path('artists_index') }}">Back to artists list.</a></div></div>{% endblock %}

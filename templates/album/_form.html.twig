@@ -1,0 +1,25 @@
+<div class="container vertical-center justify-content-center">
+	<div class="shadow bg-white rounded w-50 p-3 ">
+		<div>
+			<h2 class="primary-font">{{title}}</h2>
+			<hr>
+		</div>
+		<div class="standard-font">
+
+			{{ form_start(form) }}
+			<label for="inputArtistName" class="standard-font">Artist</label>
+			<input type="text" value="{{ artist.name }}" id="inputArtistName" class="form-control form-control-sm form-inputs" disabled>
+
+			{{ form_row(form.albumName, {'attr': {'class': 'form-control form-control-sm form-inputs'}}) }}
+			{{ form_row(form.year, {'attr': {'class': 'form-control form-control-sm form-inputs'}}) }}
+
+			{{ form_widget(form) }}
+
+
+			<button class="btn btn-success btn-sm float-right">{{ button_label|default('Save') }}</button>
+			<a href="{{ path('album_index', {'artistId': album.artistId, 'artistName': artist.id }) }}">Back to albums list.</a>
+			{{ form_end(form) }}
+
+		</div>
+	</div>
+</div>

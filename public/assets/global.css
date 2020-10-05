@@ -1,0 +1,32 @@
+.primary-font {
+    color: #8D8D8D;
+}
+
+.form-inputs {
+    margin-bottom: 8px;
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.second-title {
+    margin-bottom: 15px;
+    color: #8D8D8D;
+}
+
+.standard-font {
+    color: #515151;
+}
+
+.main-container {
+    margin-top: 6%;
+}
+
+.action-button {
+    margin-right: 2%;
+}
